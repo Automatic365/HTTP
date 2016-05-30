@@ -1,5 +1,9 @@
+require 'pry'
+
 require_relative "request_parser"
-class ServerResponse
+require_relative "word_search"
+
+ class ServerResponse
   def initialize
     @count = -1
   end
@@ -16,6 +20,8 @@ class ServerResponse
       hello_response
     elsif @request["Path:"]=="/datetime"
       date
+    elsif @request["Path:"].include?("/word_search")
+      word_search
     else
       @request
     end
@@ -37,6 +43,12 @@ class ServerResponse
 
   def close(client)
     client.close
+  end
+
+  def word_search
+    searcher = WordSearch.new
+    word = @request["Path:"].split("=").last
+    searcher.valid_word?(word)
   end
 
 end

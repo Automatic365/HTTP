@@ -1,27 +1,7 @@
 {
   "Unit Tests": {
     "coverage": {
-      "/Users/Automatic365/Turing/16035/projects/http/lib/word_search.rb": [
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        0,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        null
-      ]
     },
-    "timestamp": 1464639953
+    "timestamp": 1464641400
   }
 }

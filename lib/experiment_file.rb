@@ -13,7 +13,7 @@ loop do
     while line = client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
-    binding.pry
+
 
 
     puts "Got this request:"

@@ -12,7 +12,7 @@ class WordSearch
     if word
       word = word.downcase
     end
-    dictionary.include?(word)
+    @dictionary.include?(word)
   end
 
 end
