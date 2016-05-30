@@ -1,7 +1,11 @@
+require_relative 'client_request'
+require 'pry'
+
 class RequestParser
-  attr_reader :request_lines
+  attr_reader :request_lines, :request
   def initialize(request_lines)
     @request_lines = request_lines
+    @request = Hash.new
   end
 
   def get_verb
@@ -10,10 +14,12 @@ class RequestParser
 
   def get_path
     path = @request_lines.first.split[1]
+    # binding.pry
   end
 
   def get_protocol
     protocol = @request_lines.first.split.last
+    @request["Protocol:"] = protocol
   end
 
   def get_host
@@ -26,6 +32,7 @@ class RequestParser
     port = @request_lines.find_all do |line|
       line.include?("Host")
     end.join.split(":").last
+    # @request["Port:"] = port
   end
 
   def get_origin
@@ -38,5 +45,16 @@ class RequestParser
     accept = @request_lines.find do |line|
       line.split(":").include?("Accept")
     end.split(": ").last
+  end
+
+  def append
+    @request["Verb:"] = get_verb
+    @request["Path:"] = get_path
+    @request["Protocol:"] = get_protocol
+    @request["Host:"] = get_host
+    @request["Port:"] = get_port
+    @request["Origin"] = get_origin
+    @request["Accept:"] = get_accept
+    # binding.pry
   end
 end

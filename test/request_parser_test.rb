@@ -19,6 +19,7 @@ class RequestParserTest < Minitest::Test
 
   def test_get_verb
     assert_equal "GET", @parser.get_verb
+
   end
 
   def test_get_path
@@ -44,6 +45,10 @@ class RequestParserTest < Minitest::Test
   def test_get_accept
     assert_equal "*/*", @parser.get_accept
   end
-end
 
-puts "hello"
+  def test_request_body
+    @parser.append
+
+    assert_equal @parser.request, @parser.request
+  end
+end
