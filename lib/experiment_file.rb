@@ -1,7 +1,7 @@
 require 'socket'
 require 'pry'
 
-attr_accessor :request_lines
+# attr_accessor :request_lines
 
     tcp_server = TCPServer.new(9292)
     # binding.pry
