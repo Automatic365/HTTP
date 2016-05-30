@@ -53,7 +53,7 @@ class RequestParser
     @request["Protocol:"] = get_protocol
     @request["Host:"] = get_host
     @request["Port:"] = get_port
-    @request["Origin"] = get_origin
+    @request["Origin:"] = get_origin
     @request["Accept:"] = get_accept
     # binding.pry
   end
