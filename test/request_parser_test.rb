@@ -45,3 +45,5 @@ class RequestParserTest < Minitest::Test
     assert_equal "*/*", @parser.get_accept
   end
 end
+
+puts "hello"
