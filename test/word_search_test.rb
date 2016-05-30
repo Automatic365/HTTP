@@ -10,4 +10,11 @@ class WordSearchTest < Minitest::Test
     assert_equal "aardvark", searcher.dictionary[7]
   end
 
+  def test_if_valid_word
+    searcher = WordSearch.new
+
+    assert searcher.valid_word?("aardvark")
+    refute searcher.valid_word?("pardvark")
+  end
+
 end
