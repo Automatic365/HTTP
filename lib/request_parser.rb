@@ -14,7 +14,6 @@ class RequestParser
 
   def get_path
     path = @request_lines.first.split[1]
-    # binding.pry
   end
 
   def get_protocol

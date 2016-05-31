@@ -2,9 +2,15 @@ require_relative 'server_response'
 require 'socket'
 require 'pry'
 class HTTPRunner
+  attr_reader :hello_count, :total_count, :tcp_server
+
+  def initialize
+    # @hello_count = 0
+    # @total_count = 0
+    @tcp_server = TCPServer.new(9494)
+  end
 
   def connect
-    tcp_server = TCPServer.new(9494)
     @client = tcp_server.accept
     incoming_request
   end
