@@ -17,4 +17,11 @@ class WordSearchTest < Minitest::Test
     refute searcher.valid_word?("pardvark")
   end
 
+  def test_wacky_case
+    searcher = WordSearch.new
+
+    assert searcher.valid_word?("haMsTer")
+    assert searcher.valid_word?("cHaRISMa")
+  end
+
 end

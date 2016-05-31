@@ -26,7 +26,7 @@ class ServerResponseTest < Minitest::Test
   end
 
   def test_hello_response
-    
+
     request_lines = ["GET /hello HTTP/1.1",
       "Host: localhost:9292",
       "Connection: keep-alive",
@@ -37,7 +37,7 @@ class ServerResponseTest < Minitest::Test
       "Accept-Encoding: gzip, deflate",
       "Accept-Language: en-US"]
 
-      assert_equal "<pre>Hello, World!(0)</pre>", @server_response.response_parse(request_lines)
+      assert_equal "<pre>Hello, World!(0)</pre>", @server_response.format_response(request_lines)
   end
 
   def test_datetime
@@ -53,7 +53,7 @@ class ServerResponseTest < Minitest::Test
       "Accept-Language: en-US"]
 
 
-    assert_equal Time.now.strftime('%l:%M%p on %A, %B %e, %Y '), @server_response.response_parse(request_lines)
+    assert_equal Time.now.strftime('%l:%M%p on %A, %B %e, %Y '), @server_response.format_response(request_lines)
   end
 
   def test_word_search
@@ -67,7 +67,7 @@ class ServerResponseTest < Minitest::Test
       "Accept-Encoding: gzip, deflate",
       "Accept-Language: en-US"]
 
-      assert @server_response.response_parse(request_lines)
+      assert @server_response.format_response(request_lines)
   end
 
 end

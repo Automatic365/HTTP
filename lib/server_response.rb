@@ -8,7 +8,7 @@ require_relative "word_search"
     @count = -1
   end
 
-  def response_parse(request_lines)
+  def format_response(request_lines)
     @parser = RequestParser.new(request_lines)
     @request = @parser.request
     @parser.append
@@ -23,7 +23,7 @@ require_relative "word_search"
     elsif @request["Path:"].include?("/word_search")
       word_search
     else
-      @request
+      response_body_formatter
     end
   end
 
@@ -39,6 +39,14 @@ require_relative "word_search"
   def shutdown
     "Total Requests: #{count}"
     close(client)
+  end
+
+  def response_body_formatter
+    formatted_response = Array.new
+    @request.each do |header, value|
+      formatted_response << "#{header} #{value}"
+    end
+    formatted_response
   end
 
   def close(client)
