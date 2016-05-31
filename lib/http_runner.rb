@@ -1,7 +1,7 @@
 require_relative 'server_response'
 require 'socket'
 require 'pry'
-class Runner
+class HTTPRunner
   def initialize
   end
 
@@ -16,7 +16,6 @@ class Runner
     while line = @client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
-    # binding.pry
     conjure_response(request_lines)
   end
 
@@ -39,8 +38,8 @@ class Runner
     @client.close
     connect
   end
-  
+
 end
 
-runner = Runner.new
+runner = HTTPRunner.new
 runner.connect
