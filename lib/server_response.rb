@@ -4,7 +4,7 @@ require_relative "request_parser"
 require_relative "word_search"
 
  class ServerResponse
-
+   attr_reader :hello_count
   def initialize
     @hello_count = 0
     @total_count = 0
@@ -22,8 +22,8 @@ require_relative "word_search"
       hello_response
     elsif @request["Path:"]=="/datetime"
       date
-    elsif @request["Path:"]=="/shutdown"
-      shutdown
+    # elsif @request["Path:"]=="/shutdown"
+    #   shutdown
     elsif @request["Path:"].include?("/word_search")
       word_search
     else
@@ -32,17 +32,14 @@ require_relative "word_search"
   end
 
   def hello_response
-    "Hello, World!(#{@count})".split
+    (@hello_count+=1)
+    "Hello, World!(#{@hello_count})".split
   end
 
   def date
     Time.now.strftime('%l:%M%p on %A, %B %e, %Y ').split
   end
 
-  def shutdown
-    "Total Requests: #{count}"
-    close(client)
-  end
 
   def response_body_formatter
     formatted_response = Array.new
@@ -52,18 +49,15 @@ require_relative "word_search"
     formatted_response
   end
 
-  def close(client)
-    client.close
-  end
 
   def word_search
     searcher = WordSearch.new
     word = @request["Path:"].split("=").last
     searcher.word_validation(word).split
   end
-
-  if response == "Hello, World"
-       hello_counter += 1
-
+  #
+  # if response == "Hello, World"
+  #      hello_counter += 1
+  #    end
 
 end

@@ -6,26 +6,43 @@ class HTTPRunner
 
   def initialize
     # @hello_count = 0
-    # @total_count = 0
+    @total_count = 0
     @tcp_server = TCPServer.new(9494)
+    @server_response = ServerResponse.new
   end
 
   def connect
-    @client = tcp_server.accept
+    @client = @tcp_server.accept
     incoming_request
   end
 
   def incoming_request
     request_lines = []
+    (@total_count += 1)
     while line = @client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
-    conjure_response(request_lines)
+    shutdown_check(request_lines)
+  end
+
+  def shutdown_check(request)
+    if request.any?{|line|line.include?("/shutdown")}
+      shutdown
+    else
+      # binding.pry
+      conjure_response(request)
+    end
+  end
+
+  def shutdown
+    response = "Total Requests: #{@total_count}"
+    @client.puts response
+    @client.close
   end
 
   def conjure_response(request)
-    server_response = ServerResponse.new
-    response = server_response.format_response(request)
+    response = @server_response.format_response(request)
+
     server_respond(response)
   end
 
@@ -42,7 +59,6 @@ class HTTPRunner
     @client.close
     connect
   end
-
 end
 
 runner = HTTPRunner.new
