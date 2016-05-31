@@ -15,4 +15,12 @@ class WordSearch
     @dictionary.include?(word)
   end
 
+  def word_validation(word)
+    if valid_word?(word)
+      "#{word} is a word."
+    else
+      "#{word} is not a word."
+    end
+  end
+
 end

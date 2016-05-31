@@ -2,8 +2,6 @@ require_relative 'server_response'
 require 'socket'
 require 'pry'
 class HTTPRunner
-  def initialize
-  end
 
   def connect
     tcp_server = TCPServer.new(9494)

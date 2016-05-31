@@ -29,11 +29,11 @@ require_relative "word_search"
 
   def hello_response
     @count += 1
-    "<pre>Hello, World!(#{@count})</pre>"
+    "Hello, World!(#{@count})".split
   end
 
   def date
-    Time.now.strftime('%l:%M%p on %A, %B %e, %Y ')
+    Time.now.strftime('%l:%M%p on %A, %B %e, %Y ').split
   end
 
   def shutdown
@@ -56,7 +56,9 @@ require_relative "word_search"
   def word_search
     searcher = WordSearch.new
     word = @request["Path:"].split("=").last
-    searcher.valid_word?(word)
+    searcher.word_validation(word).split
   end
+
+
 
 end
