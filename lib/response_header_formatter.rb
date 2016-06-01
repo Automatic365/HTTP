@@ -15,8 +15,7 @@ class ResponseHeaderFormatter
     if request_lines.any?{|line|line.include?("/shutdown")}
       @formatted_response = "<pre>Total Requests:(#{@total_count})</pre> "
     elsif request_lines.first.include?("/hello")
-      @hello_count += 1
-      @formatted_response = "<pre>Hello, World!(#{@hello_count})</pre>"
+      @formatted_response = "<pre>Hello, World!(#{@hello_count+=1})</pre>"
     else
       @formatted_response = @server_response.format_response(request_lines)
     end
