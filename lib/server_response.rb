@@ -18,9 +18,9 @@ require_relative "game"
   end
 
   def path_check
-    if @request["Path:"]=="/hello"
-      hello_response
-    elsif @request["Path:"]=="/datetime"
+    # if @request["Path:"]=="/hello"
+    #   hello_response
+    if @request["Path:"]=="/datetime"
       date
     elsif @request["Path:"].include?("game")
       start_game(@request)
@@ -30,10 +30,10 @@ require_relative "game"
       response_body_formatter
     end
   end
-
-  def hello_response
-    "Hello, World!(#{@hello_count})"
-  end
+  # 
+  # def hello_response
+  #   "Hello, World!("
+  # end
 
   def date
     Time.now.strftime('%l:%M%p on %A, %B %e, %Y ')

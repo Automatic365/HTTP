@@ -7,8 +7,8 @@ class HTTPRunner
   def initialize
     @total_count = 0
     @tcp_server = TCPServer.new(9494)
-    @server = ServerResponse.new
-
+    @hello_count = 0
+    @response_formatter = ResponseHeaderFormatter.new
   end
 
   def connect
@@ -22,44 +22,36 @@ class HTTPRunner
     while line = @client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
+    @response_formatter.form_response(request_lines)
     format_response_headers(request_lines)
   end
 
 
 
   def format_response_headers(request_lines)
-    if request_lines.any?{|line|line.include?("/shutdown")}
-      shutdown
-    else
-      @response_formatter = ResponseHeaderFormatter.new(request_lines)
-      @response = @response_formatter.form_response
-      @output = @response_formatter.format_output
-      @headers = @response_formatter.format_headers
-    end
-    hello_check
+    @response = @response_formatter.formatted_response
+    @output = @response_formatter.format_output
+    @headers = @response_formatter.format_headers
     client_response
   end
 
-  def hello_check
-    @server.hello_count += 1 if @response.include?("Hello")
-  end
 
-
-  def shutdown
-    @format_response_headers.formatted_response = "Total Requests: #{@total_count}"
-    @response = @format_response_headers.formatted_response
-    @client.puts @headers
-    @client.puts @output
-    @client.close
-  end
 
   def client_response
     @client.puts @headers
     @client.puts @output
-    server_close
+    shutdown
   end
 
-  def server_close
+  def shutdown
+    if @response.include?("Requests")
+      @client.close
+    else
+      reconnect
+    end
+  end
+
+  def reconnect
     @client.close
     connect
   end
