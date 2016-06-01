@@ -9,9 +9,7 @@ class WordSearch
 
 
   def valid_word?(word)
-    if word
-      word = word.downcase
-    end
+    word = word.downcase if word
     @dictionary.include?(word)
   end
 

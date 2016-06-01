@@ -53,9 +53,7 @@ class HTTPRunner
   end
 
   def hello_check(response)
-    if response.include?("Hello")
-      @server_response.hello_count += 1
-    end
+    @server_response.hello_count += 1 if response.include?("Hello")
   end
 
   def response_body(response)
