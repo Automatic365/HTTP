@@ -1,4 +1,3 @@
-require_relative 'client_request'
 require 'pry'
 
 class RequestParser
@@ -31,7 +30,6 @@ class RequestParser
     port = @request_lines.find_all do |line|
       line.include?("Host")
     end.join.split(":").last
-    # @request["Port:"] = port
   end
 
   def get_origin
@@ -54,6 +52,5 @@ class RequestParser
     @request["Port:"] = get_port
     @request["Origin:"] = get_origin
     @request["Accept:"] = get_accept
-    # binding.pry
   end
 end

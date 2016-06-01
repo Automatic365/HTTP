@@ -2,10 +2,8 @@ require_relative 'server_response'
 require 'socket'
 require 'pry'
 class HTTPRunner
-  attr_reader :hello_count, :total_count, :tcp_server
 
   def initialize
-    # @hello_count = 0
     @total_count = 0
     @tcp_server = TCPServer.new(9494)
     @server_response = ServerResponse.new
@@ -29,7 +27,6 @@ class HTTPRunner
     if request.any?{|line|line.include?("/shutdown")}
       shutdown
     else
-      # binding.pry
       conjure_response(request)
     end
   end
@@ -43,16 +40,31 @@ class HTTPRunner
   def conjure_response(request)
     response = @server_response.format_response(request)
 
-    server_respond(response)
+    sort_response(response)
   end
 
-  def server_respond(response)
-    # binding.pry
+  def sort_response(response)
     if response.class == String
+      hello_check(response)
       @client.puts response
+      server_close
     else
-      response.each{|line| @client.puts line}
+      response_body(response)
     end
+  end
+
+  def hello_check(response)
+    if response.include?("Hello")
+      @server_response.hello_count += 1
+    end
+  end
+
+  def response_body(response)
+    response.each{|line| @client.puts line}
+    server_close
+  end
+
+  def server_close
     @client.close
     connect
   end
