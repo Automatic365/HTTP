@@ -33,11 +33,11 @@ require_relative "word_search"
 
   def hello_response
     (@hello_count+=1)
-    "Hello, World!(#{@hello_count})".split
+    "Hello, World!(#{@hello_count})"
   end
 
   def date
-    Time.now.strftime('%l:%M%p on %A, %B %e, %Y ').split
+    Time.now.strftime('%l:%M%p on %A, %B %e, %Y ')
   end
 
 
@@ -46,14 +46,15 @@ require_relative "word_search"
     @request.each do |header, value|
       formatted_response << "#{header} #{value}"
     end
-    formatted_response
+    formatted_response.unshift("<html><head></head><body><pre>\n")
+    formatted_response.push("\n</pre></body></html>")
   end
 
 
   def word_search
     searcher = WordSearch.new
     word = @request["Path:"].split("=").last
-    searcher.word_validation(word).split
+    searcher.word_validation(word)
   end
   #
   # if response == "Hello, World"

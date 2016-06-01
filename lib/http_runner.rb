@@ -47,14 +47,11 @@ class HTTPRunner
   end
 
   def server_respond(response)
-    response.each do |line|
-      if line == response.first
-        @client.puts "<html><head></head><body><pre>\n#{line}"
-      elsif line == response.last
-        @client.puts "#{line}\n</pre></body></html>"
-      else
-        @client.puts "#{line}"
-      end
+    # binding.pry
+    if response.class == String
+      @client.puts response
+    else
+      response.each{|line| @client.puts line}
     end
     @client.close
     connect
