@@ -38,10 +38,7 @@ require_relative "word_search"
 
 
   def response_body_formatter
-    formatted_response = Array.new
-    @request.each do |header, value|
-      formatted_response << "#{header} #{value}"
-    end
+    formatted_response = @request.to_a.map{|line|"#{line.first} #{line.last}"}
     formatted_response.unshift("<html><head></head><body><pre>\n")
     formatted_response.push("\n</pre></body></html>")
   end

@@ -39,7 +39,6 @@ class HTTPRunner
 
   def conjure_response(request)
     response = @server_response.format_response(request)
-
     sort_response(response)
   end
 
