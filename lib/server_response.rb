@@ -10,9 +10,9 @@ require_relative "word_search"
   end
 
   def format_response(request_lines)
-    @parser = RequestParser.new(request_lines)
-    @request = @parser.request
-    @parser.append
+    parser = RequestParser.new(request_lines)
+    parser.append
+    @request = parser.request
     path_check
   end
 

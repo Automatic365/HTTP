@@ -16,13 +16,14 @@ class ServerResponseTest < Minitest::Test
 
     @server_response = ServerResponse.new
   end
+
   def test_hello_response
-    skip
-    assert_equal "<pre>Hello, World!(0)</pre>", @server_response.hello_response
+
+    assert_equal "Hello, World!(1)", @server_response.hello_response
 
     @server_response.hello_response
 
-    assert_equal "<pre>Hello, World!(2)</pre>", @server_response.hello_response
+    assert_equal "Hello, World!(3)", @server_response.hello_response
   end
 
   def test_hello_response
@@ -37,7 +38,7 @@ class ServerResponseTest < Minitest::Test
       "Accept-Encoding: gzip, deflate",
       "Accept-Language: en-US"]
 
-      assert_equal "<pre>Hello, World!(0)</pre>", @server_response.format_response(request_lines)
+      assert_equal "Hello, World!(1)", @server_response.format_response(request_lines)
   end
 
   def test_datetime
@@ -51,8 +52,7 @@ class ServerResponseTest < Minitest::Test
       "Accept: */*",
       "Accept-Encoding: gzip, deflate",
       "Accept-Language: en-US"]
-
-
+      
     assert_equal Time.now.strftime('%l:%M%p on %A, %B %e, %Y '), @server_response.format_response(request_lines)
   end
 
