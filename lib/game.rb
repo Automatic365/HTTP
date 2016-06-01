@@ -1,15 +1,17 @@
 require_relative 'server_response'
+require 'pry'
 
 class Game
   attr_reader :total_guesses, :game_on
 
-  def initialize(request)
-    @request = request
+  def initialize
     @total_guesses = 0
     @game_on = false
+    @answer = rand(1..100)
   end
 
-  def game_check
+  def game_check(request)
+    @request = request
     if @request["Path:"]=="/start_game"
       start_game
     elsif @request["Path:"].include?("/game")
@@ -24,7 +26,7 @@ class Game
   def verb_check
     if @request["Verb:"]=="POST"
       record_guess
-      post_game
+      get_guess
     elsif @request["Verb:"] == "GET"
       get_game
     end
@@ -44,7 +46,17 @@ class Game
   end
 
   def evaluate_guess(guess)
-    
+    if guess.to_i < @answer
+      "TOO LOW!"
+    elsif guess.to_i > @answer
+      "TOO HIGH!"
+    else
+      "CORRECT!"
+    end
+  end
+
+  def post_game
+
   end
 
 end

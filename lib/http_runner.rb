@@ -1,13 +1,12 @@
 require_relative 'server_response'
 require_relative 'response_header_formatter'
+
 require 'socket'
 require 'pry'
 class HTTPRunner
 
   def initialize
-    @total_count = 0
     @tcp_server = TCPServer.new(9494)
-    @hello_count = 0
     @response_formatter = ResponseHeaderFormatter.new
   end
 
@@ -18,7 +17,6 @@ class HTTPRunner
 
   def incoming_request
     request_lines = []
-    (@total_count += 1)
     while line = @client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
