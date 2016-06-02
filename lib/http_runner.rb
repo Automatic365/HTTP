@@ -8,7 +8,6 @@ class HTTPRunner
   def initialize
     @tcp_server = TCPServer.new(9494)
     @response_formatter = ResponseHeaderFormatter.new
-    # @game = Game.new
   end
 
   def connect
@@ -42,6 +41,7 @@ class HTTPRunner
     @response = "<pre>" + @response_formatter.formatted_response + "\n" + "</pre>"
     @output = @response_formatter.format_output
     @headers = @response_formatter.format_headers
+    # binding.pry
     client_response
   end
 

@@ -3,7 +3,7 @@ require 'pry'
 
 class Game
   attr_reader :total_guesses
-  attr_accessor :last_guess
+  attr_accessor :last_guess, :parsed_request
 
   def initialize
     @game_on = false
@@ -14,7 +14,7 @@ class Game
     post_parser = PostRequestParser.new(request)
     if request.first.include?("POST")
       post_parser.voltron
-      @request = post_parser.parsed_request
+      @parsed_request = post_parser.parsed_request
       start_check
     else
       get_game
@@ -23,7 +23,7 @@ class Game
 
 
   def start_check
-   if @request["Path:"]=="/start_game"
+   if @parsed_request["Path:"]=="/start_game"
      start_game
    else
      guess_check

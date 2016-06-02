@@ -8,7 +8,7 @@ class GameTest < Minitest::Test
 
 
   def test_start_game
-    
+
     conn = Faraday.new
     response = conn.post('http://127.0.0.1:9494/start_game')
 
@@ -19,6 +19,7 @@ class GameTest < Minitest::Test
 
     conn = Faraday.new
     response = conn.post('http://127.0.0.1:9494/game?',:guess => "4")
+
     assert response.body.include?("4")
   end
 

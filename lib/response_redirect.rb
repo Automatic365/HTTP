@@ -3,19 +3,52 @@ require_relative 'word_search'
 require_relative 'game'
 
 class ResponseRedirect
-
-  def initialize
+  attr_accessor :redirect_headers
+  def create_redirect(parsed_request)
+    @parsed_request = parsed_request
+    @redirect_headers = Array.new
+    voltron
   end
 
-  def request_parse(request_lines)
-    post_parser = PostRequestParser.new(request_lines)
-    post_parser.voltron
-    game_check(post_parser.parsed_request)
+  def get_protocol
+    @parsed_request["Protocol:"]
   end
 
-  def start_game(game_request)
-    @game.game_check(game_request)
+  def get_status_code
+    "302 Redirection"
   end
 
+  def get_status_line
+    get_protocol + " " + get_status_code
+  end
 
+  def get_location
+    "Location: " + @parsed_request["Host:"] + @parsed_request["Path:"]
+  end
+
+  def get_content_type
+    "content-type: text/html; charset=iso-8859-1"
+  end
+
+  def get_date
+    "date: #{Time.now.strftime('%a, %e %b %Y %H:%M:%S %z')}"
+  end
+
+  def get_server
+    "server: ruby"
+  end
+
+  def get_content_length
+    "Content-Length: " + @parsed_request["Content-Length:"]
+  end
+
+  def voltron
+
+    @redirect_headers.push(get_status_line)
+    @redirect_headers.push(get_location)
+    @redirect_headers.push(get_content_type)
+    @redirect_headers.push(get_date)
+    @redirect_headers.push(get_server)
+    @redirect_headers.push(get_content_length)
+  end
 end

@@ -6,7 +6,7 @@ class PostRequestParser
   end
 
   def get_verb
-    @request_line = @request_lines.shift
+    @request_line = @request_lines.first
     @request_line.split.first
   end
 
@@ -14,9 +14,9 @@ class PostRequestParser
     @request_line.split[1].split("?").first
   end
 
-  def get_parameters
-    @request_line.split[1].split("?").last
-  end
+  # def get_parameters
+  #   @request_line.split[1].split("?").last
+  # end
 
   def get_protocol
     @request_line.split.last
@@ -55,7 +55,7 @@ class PostRequestParser
   def voltron
     @parsed_request["Verb:"] = get_verb
     @parsed_request["Path:"] = get_path
-    @parsed_request["Parameters:"] = get_parameters
+    # @parsed_request["Parameters:"] = get_paramxzeters
     @parsed_request["Protocol:"] = get_protocol
     @parsed_request["Host:"] = get_host
     @parsed_request["Port:"] = get_port
