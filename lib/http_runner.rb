@@ -33,6 +33,14 @@ class HTTPRunner
     @response_formatter.game.last_guess = @client.read(request_lines.last.split(": ").last.to_i).split("=").last
   end
 
+  def redirect_headers(output, type, path)
+   ["http/1.1 #{type}",
+     "Location: http://127.0.0.1:9292#{path}",
+     "date: #{Time.now.strftime('%a, %e %b %Y %H:%M:%S %z')}",
+     "server: ruby",
+     "content-type: text/html; charset=iso-8859-1", "content-length: #{output.length}\r\n\r\n"].join("\r\n")
+ end
+
   def sort_response(request_lines)
     @response_formatter.form_response(request_lines)
     format_response_headers(request_lines)
