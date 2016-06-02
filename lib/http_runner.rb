@@ -1,13 +1,14 @@
 require_relative 'server_response'
 require_relative 'response_header_formatter'
-
 require 'socket'
 require 'pry'
+
 class HTTPRunner
 
   def initialize
     @tcp_server = TCPServer.new(9494)
     @response_formatter = ResponseHeaderFormatter.new
+    # @game = Game.new
   end
 
   def connect
@@ -20,6 +21,19 @@ class HTTPRunner
     while line = @client.gets and !line.chomp.empty?
       request_lines << line.chomp
     end
+    parameter_check(request_lines)
+    sort_response(request_lines)
+  end
+
+  def parameter_check(request_lines)
+    grab_guess(request_lines) if @response_formatter.post_check(request_lines)
+  end
+
+  def grab_guess(request_lines)
+    @response_formatter.game.last_guess = @client.read(request_lines.last.split(": ").last.to_i).split("=").last
+  end
+
+  def sort_response(request_lines)
     @response_formatter.form_response(request_lines)
     format_response_headers(request_lines)
   end

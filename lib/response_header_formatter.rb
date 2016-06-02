@@ -4,7 +4,7 @@ require_relative 'response_redirect'
 require 'pry'
 
 class ResponseHeaderFormatter
-  attr_accessor :formatted_response
+  attr_accessor :formatted_response, :game
   def initialize
     @server_response = ServerResponse.new
     @response_redirect = ResponseRedirect.new
@@ -46,6 +46,14 @@ class ResponseHeaderFormatter
      "server: ruby",
      "content-type: text/html; charset=iso-8859-1",
      "content-lenth: #{format_output.length}\r\n\r\n"].join("\r\n")
+  end
+
+  def post_check(request_lines)
+    guess_check(request_lines) if request_lines.first.include?("POST")
+  end
+
+  def guess_check(request_lines)
+    request_lines.first.split[1] == "/game"
   end
 
 end

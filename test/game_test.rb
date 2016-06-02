@@ -8,7 +8,7 @@ class GameTest < Minitest::Test
 
 
   def test_start_game
-
+    
     conn = Faraday.new
     response = conn.post('http://127.0.0.1:9494/start_game')
 
@@ -18,12 +18,12 @@ class GameTest < Minitest::Test
   def test_post_guess
 
     conn = Faraday.new
-    response = conn.post('http://127.0.0.1:9494/game?guess=4',:guess => "4")
-
-    refute response.body.include?("CORRECT!")
+    response = conn.post('http://127.0.0.1:9494/game?',:guess => "4")
+    assert response.body.include?("4")
   end
 
   def test_game_wont_allow_posting_without_guess
+    skip
      conn = Faraday.new
 
      response = conn.get('http://127.0.0.1:9494/game')

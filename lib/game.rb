@@ -3,6 +3,7 @@ require 'pry'
 
 class Game
   attr_reader :total_guesses
+  attr_accessor :last_guess
 
   def initialize
     @game_on = false
@@ -25,7 +26,7 @@ class Game
    if @request["Path:"]=="/start_game"
      start_game
    else
-     post_guess
+     guess_check
    end
   end
 
@@ -35,24 +36,20 @@ class Game
   end
 
   def get_game
-    if @last_guess == nil
+    if last_guess == nil
       "Did you start the game yet?"
     else
-      evaluate_guess(@last_guess)
+      evaluate_guess(last_guess)
     end
   end
 
-  def post_guess
-    @last_guess = @request["Parameters:"].split("=").last
-    guess_check
-  end
-
   def guess_check
+    # binding.pry
     if @total_guesses == nil
       "You have to start the game first!"
     else
       record_guess
-      evaluate_guess(@last_guess)
+      evaluate_guess(last_guess)
     end
   end
 
@@ -61,6 +58,7 @@ class Game
   end
 
   def evaluate_guess(guess)
+    # binding.pry
     if guess.to_i < @answer
       "#{guess.to_i} IS TOO LOW!"
     elsif guess.to_i > @answer
