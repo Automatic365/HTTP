@@ -1,26 +1,39 @@
 require_relative 'server_response'
+require_relative 'game'
+require_relative 'response_redirect'
 require 'pry'
 
 class ResponseHeaderFormatter
-  attr_accessor :formatted_response, :total_count, :hello_count
+  attr_accessor :formatted_response
   def initialize
     @server_response = ServerResponse.new
+    @response_redirect = ResponseRedirect.new
     @total_count = 0
     @hello_count = 0
+    @game = Game.new
   end
 
 
-  def form_response(request_lines)
-    @total_count +=1
-    if request_lines.any?{|line|line.include?("/shutdown")}
-      @formatted_response = "<pre>Total Requests:(#{@total_count})</pre> "
-    elsif request_lines.first.include?("/hello")
-      @formatted_response = "<pre>Hello, World!(#{@hello_count+=1})</pre>"
+  def form_response(request)
+    @total_count += 1
+    if request.any?{|line|line.include?("/shutdown")}
+      shutdown_format
+    elsif request.first.include?("/hello")
+      hello_format
+    elsif request.first.include?("game")
+      @formatted_response = "<pre>#{@game.game_check(request)}</pre>"
     else
-      @formatted_response = @server_response.format_response(request_lines)
+      @formatted_response = @server_response.format_response(request)
     end
   end
 
+  def shutdown_format
+    @formatted_response = "<pre>Total Requests:(#{@total_count})</pre>"
+  end
+
+  def hello_format
+    @formatted_response = "<pre>Hello, World!(#{@hello_count+=1})</pre>"
+  end
 
 
   def format_output

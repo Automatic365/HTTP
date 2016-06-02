@@ -15,9 +15,9 @@ class WordSearch
 
   def word_validation(word)
     if valid_word?(word)
-      "#{word} is a word."
+      "<pre>#{word} is a word.</pre>"
     else
-      "#{word} is not a word."
+      "<pre>#{word} is not a word.</pre>"
     end
   end
 

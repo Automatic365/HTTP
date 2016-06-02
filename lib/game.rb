@@ -1,62 +1,73 @@
-require_relative 'server_response'
+require_relative 'post_request_parser'
 require 'pry'
 
 class Game
-  attr_reader :total_guesses, :game_on
+  attr_reader :total_guesses
 
   def initialize
-    @total_guesses = 0
     @game_on = false
     @answer = rand(1..100)
   end
 
   def game_check(request)
-    @request = request
-    if @request["Path:"]=="/start_game"
-      start_game
-    elsif @request["Path:"].include?("/game")
-      verb_check
-    end
-  end
-
-  def start_game
-    "Good Luck!"
-  end
-
-  def verb_check
-    if @request["Verb:"]=="POST"
-      record_guess
-      get_guess
-    elsif @request["Verb:"] == "GET"
+    post_parser = PostRequestParser.new(request)
+    if request.first.include?("POST")
+      post_parser.voltron
+      @request = post_parser.parsed_request
+      start_check
+    else
       get_game
     end
   end
 
-  def get_game
 
+  def start_check
+   if @request["Path:"]=="/start_game"
+     start_game
+   else
+     post_guess
+   end
+  end
+
+  def start_game
+    @total_guesses = 0
+    "Good Luck!"
+  end
+
+  def get_game
+    if @last_guess == nil
+      "Did you start the game yet?"
+    else
+      evaluate_guess(@last_guess)
+    end
+  end
+
+  def post_guess
+    @last_guess = @request["Parameters:"].split("=").last
+    guess_check
+  end
+
+  def guess_check
+    if @total_guesses == nil
+      "You have to start the game first!"
+    else
+      record_guess
+      evaluate_guess(@last_guess)
+    end
   end
 
   def record_guess
     @total_guesses += 1
   end
 
-  def get_guess
-    last_guess = @request["Path:"].split("=").last
-    evaluate_guess(last_guess)
-  end
-
   def evaluate_guess(guess)
     if guess.to_i < @answer
-      "TOO LOW!"
+      "#{guess.to_i} IS TOO LOW!"
     elsif guess.to_i > @answer
-      "TOO HIGH!"
+      "#{guess.to_i} IS TOO HIGH!"
     else
-      "CORRECT!"
+      "#{guess.to_i} IS CORRECT!"
     end
-  end
-
-  def post_game
-
   end
 
 end

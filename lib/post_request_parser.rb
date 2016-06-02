@@ -3,10 +3,10 @@ class PostRequestParser
   def initialize(request_lines)
     @request_lines = request_lines
     @parsed_request = Hash.new
-    @request_line = @request_lines.shift
   end
 
   def get_verb
+    @request_line = @request_lines.shift
     @request_line.split.first
   end
 

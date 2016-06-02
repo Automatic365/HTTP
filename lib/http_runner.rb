@@ -24,17 +24,12 @@ class HTTPRunner
     format_response_headers(request_lines)
   end
 
-
-
   def format_response_headers(request_lines)
-    binding.pry
     @response = @response_formatter.formatted_response
     @output = @response_formatter.format_output
     @headers = @response_formatter.format_headers
     client_response
   end
-
-
 
   def client_response
     @client.puts @headers
