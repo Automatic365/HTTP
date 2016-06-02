@@ -1,6 +1,7 @@
 require 'pry'
 
 require_relative "request_parser"
+require_relative "post_request_parser"
 require_relative "word_search"
 require_relative "game"
 
@@ -11,18 +12,19 @@ require_relative "game"
 
   def format_response(request_lines)
     parser = RequestParser.new(request_lines)
-    binding.pry
+    parser.voltron
     if request_lines.first.include?("POST")
       post_parse(request_lines)
     else
-      parser.append
       @request = parser.request
       path_check
     end
   end
 
   def post_parse(request_lines)
-    PostRequestParser.new(request_lines)
+    post_parser = PostRequestParser.new(request_lines)
+    post_parser.voltron
+    post_parser.parsed_request
   end
 
   def path_check

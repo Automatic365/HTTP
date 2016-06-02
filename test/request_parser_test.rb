@@ -47,7 +47,7 @@ class RequestParserTest < Minitest::Test
   end
 
   def test_request_body
-    @parser.append
+    @parser.voltron
 
     assert_equal @parser.request, @parser.request
   end

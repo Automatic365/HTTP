@@ -43,7 +43,8 @@ class RequestParser
     end.split(": ").last
   end
 
-  def append
+
+  def voltron
     @request["Verb:"] = get_verb
     @request["Path:"] = get_path
     @request["Protocol:"] = get_protocol

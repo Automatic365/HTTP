@@ -27,6 +27,7 @@ class HTTPRunner
 
 
   def format_response_headers(request_lines)
+    binding.pry
     @response = @response_formatter.formatted_response
     @output = @response_formatter.format_output
     @headers = @response_formatter.format_headers
