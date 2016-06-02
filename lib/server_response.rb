@@ -18,8 +18,6 @@ require_relative "game"
   def path_check
     if @request["Path:"]=="/datetime"
       date
-    elsif @request["Path:"].include?("game")
-      start_game(@request)
     elsif @request["Path:"].include?("/word_search")
       word_search
     else
