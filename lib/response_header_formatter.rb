@@ -21,18 +21,18 @@ class ResponseHeaderFormatter
     elsif request.first.include?("/hello")
       hello_format
     elsif request.first.include?("game")
-      @formatted_response = "<pre>#{@game.game_check(request)}</pre>"
+      @formatted_response = @game.game_check(request)
     else
       @formatted_response = @server_response.format_response(request)
     end
   end
 
   def shutdown_format
-    @formatted_response = "<pre>Total Requests:(#{@total_count})</pre>"
+    @formatted_response = "Total Requests:(#{@total_count})"
   end
 
   def hello_format
-    @formatted_response = "<pre>Hello, World!(#{@hello_count+=1})</pre>"
+    @formatted_response = "Hello, World!(#{@hello_count+=1})"
   end
 
 

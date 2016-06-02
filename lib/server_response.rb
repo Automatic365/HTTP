@@ -30,7 +30,7 @@ require_relative "game"
   end
 
   def response_body_formatter
-    @request.to_a.map{|line|"#{line.first} #{line.last}\n"}.join
+    @request.to_a.map{|line|"\n#{line.first} #{line.last}"}.join
   end
 
   def word_search

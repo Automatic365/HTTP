@@ -25,7 +25,7 @@ class HTTPRunner
   end
 
   def format_response_headers(request_lines)
-    @response = @response_formatter.formatted_response
+    @response = "<pre>" + @response_formatter.formatted_response + "\n" + "</pre>"
     @output = @response_formatter.format_output
     @headers = @response_formatter.format_headers
     client_response
