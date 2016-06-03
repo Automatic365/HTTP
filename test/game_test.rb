@@ -21,7 +21,15 @@ class GameTest < Minitest::Test
 
     assert response.body.include?("24")
   end
-  
+
+  def test_post_compares_guess_to_answer
+    conn = Faraday.new
+    header = conn.post('http://127.0.0.1:9494/start_game')
+    response = conn.post('http://127.0.0.1:9494/game',:guess => "342")
+
+    assert response.body.include?("TOO HIGH!")
+  end
+
   def test_post_guess_causes_redirect
 
     conn = Faraday.new
@@ -32,7 +40,7 @@ class GameTest < Minitest::Test
     assert_equal 302, response.status
   end
 
-  def test_game_wont_allow_posting_without_guess
+  def test_game_only_returns_last_guess
 
      conn = Faraday.new
 
@@ -42,8 +50,18 @@ class GameTest < Minitest::Test
      response = conn.post('http://127.0.0.1:9494/game',:guess => 14)
 
 
-     assert response.body.include?("Guess #3")
      assert response.body.include?("14")
   end
+  def test_game_returns_number_of_guesses
+    conn = Faraday.new
 
+    header = conn.post('http://127.0.0.1:9494/start_game')
+    conn.post('http://127.0.0.1:9494/game',:guess => 12)
+    conn.post('http://127.0.0.1:9494/game',:guess => 54)
+    conn.post('http://127.0.0.1:9494/game',:guess => 5)
+    conn.post('http://127.0.0.1:9494/game',:guess => 78)
+    response = conn.post('http://127.0.0.1:9494/game',:guess => 23)
+
+    assert response.body.include?("Guess #5")
+  end
 end
