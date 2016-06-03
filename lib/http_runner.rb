@@ -1,4 +1,3 @@
-require_relative 'server_response'
 require_relative 'response_header_formatter'
 require 'socket'
 require 'pry'

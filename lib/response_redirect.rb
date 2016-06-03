@@ -2,6 +2,10 @@ require_relative 'post_request_parser'
 require_relative 'word_search'
 require_relative 'game'
 
+
+# ********* UNUSED CLASS *************
+
+
 class ResponseRedirect
   attr_accessor :redirect_headers
   def create_redirect(parsed_request)

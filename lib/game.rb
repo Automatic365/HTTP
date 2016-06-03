@@ -2,7 +2,6 @@ require_relative 'post_request_parser'
 require 'pry'
 
 class Game
-  attr_reader :total_guesses
   attr_accessor :last_guess, :parsed_request
 
   def initialize

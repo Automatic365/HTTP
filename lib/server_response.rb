@@ -1,8 +1,5 @@
-require 'pry'
-
 require_relative "request_parser"
 require_relative "word_search"
-require_relative "game"
 
  class ServerResponse
 

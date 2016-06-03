@@ -1,6 +1,5 @@
 require_relative '../lib/server_response'
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'testhelper'
 
 class ServerResponseTest < Minitest::Test
   def setup

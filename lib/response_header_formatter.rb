@@ -1,7 +1,5 @@
 require_relative 'server_response'
 require_relative 'game'
-require_relative 'response_redirect'
-require 'pry'
 
 class ResponseHeaderFormatter
   attr_accessor :formatted_response, :game

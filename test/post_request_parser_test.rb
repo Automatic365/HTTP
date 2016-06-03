@@ -1,6 +1,5 @@
 require_relative '../lib/post_request_parser'
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'testhelper'
 require 'pry'
 require 'Faraday'
 

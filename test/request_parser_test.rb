@@ -1,6 +1,5 @@
 require_relative '../lib/request_parser'
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'testhelper'
 
 class RequestParserTest < Minitest::Test
   def setup

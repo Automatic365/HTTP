@@ -1,6 +1,5 @@
 require_relative '../lib/game'
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'testhelper'
 require 'faraday'
 require 'pry'
 
