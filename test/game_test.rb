@@ -35,7 +35,6 @@ class GameTest < Minitest::Test
     conn = Faraday.new
     header = conn.post('http://127.0.0.1:9494/start_game')
     response = conn.post('http://127.0.0.1:9494/game',:guess => "4")
-    # binding.pry
 
     assert_equal 302, response.status
   end

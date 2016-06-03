@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-03T07:36:09-06:00">2016-06-03T07:36:09-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-06-03T08:18:23-06:00">2016-06-03T08:18:23-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">47.6%</span></span>
+    (<span class="covered_percent"><span class="red">45.28%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.48
+         0.46
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>9</b> files in total.
-    <b>208</b> relevant lines. 
-    <span class="green"><b>99</b> lines covered</span> and
-    <span class="red"><b>109</b> lines missed </span>
+    <b>212</b> relevant lines. 
+    <span class="green"><b>96</b> lines covered</span> and
+    <span class="red"><b>116</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -92,41 +92,41 @@
       
       <tr>
         <td class="strong"><a href="#4c012fefe00d5d9ed7647f3a2ef0262448b6e257" class="src_link" title="test/post_request_parser_test.rb">test/post_request_parser_test.rb</a></td>
-        <td class="red strong">61.9 %</td>
-        <td>44</td>
-        <td>21</td>
-        <td>13</td>
-        <td>8</td>
+        <td class="red strong">63.16 %</td>
+        <td>40</td>
+        <td>19</td>
+        <td>12</td>
+        <td>7</td>
         <td>0.6</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#edf3bf6d83b7510a3cdfa615d78f73e5f1758bf1" class="src_link" title="test/request_parser_test.rb">test/request_parser_test.rb</a></td>
-        <td class="red strong">54.17 %</td>
-        <td>54</td>
-        <td>24</td>
-        <td>13</td>
-        <td>11</td>
-        <td>0.5</td>
-      </tr>
-      
-      <tr>
-        <td class="strong"><a href="#f5ef2fae7ba5429bf047c9d917134027dab1b633" class="src_link" title="test/response_redirect_test.rb">test/response_redirect_test.rb</a></td>
-        <td class="red strong">56.52 %</td>
-        <td>45</td>
-        <td>23</td>
-        <td>13</td>
-        <td>10</td>
+        <td class="red strong">57.14 %</td>
+        <td>49</td>
+        <td>21</td>
+        <td>12</td>
+        <td>9</td>
         <td>0.6</td>
       </tr>
       
       <tr>
+        <td class="strong"><a href="#f5ef2fae7ba5429bf047c9d917134027dab1b633" class="src_link" title="test/response_redirect_test.rb">test/response_redirect_test.rb</a></td>
+        <td class="red strong">41.94 %</td>
+        <td>53</td>
+        <td>31</td>
+        <td>13</td>
+        <td>18</td>
+        <td>0.4</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#7fb77a70a2e1944da131227f256046dac71b5f35" class="src_link" title="test/server_response_test.rb">test/server_response_test.rb</a></td>
-        <td class="red strong">42.86 %</td>
-        <td>73</td>
-        <td>21</td>
-        <td>9</td>
-        <td>12</td>
+        <td class="red strong">36.36 %</td>
+        <td>60</td>
+        <td>22</td>
+        <td>8</td>
+        <td>14</td>
         <td>0.4</td>
       </tr>
       
@@ -941,7 +941,7 @@
         <li class="missed" data-hits="0" data-linenumber="13">
           
           
-          <code class="ruby">    path_check(request_lines)</code>
+          <code class="ruby">    path_check</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
@@ -965,13 +965,13 @@
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">  def path_check(request_lines)</code>
+          <code class="ruby">  def path_check</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="18">
           
           
-          <code class="ruby">    if datetime_check(request_lines)</code>
+          <code class="ruby">    if datetime_check</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="19">
@@ -983,7 +983,7 @@
         <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">    elsif word_search_check(request_lines)</code>
+          <code class="ruby">    elsif word_search_check</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
@@ -1025,13 +1025,13 @@
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">  def datetime_check(request_lines)</code>
+          <code class="ruby">  def datetime_check</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="28">
           
           
-          <code class="ruby">    request_lines.first.include?(&quot;/datetime&quot;)</code>
+          <code class="ruby">    @request[&quot;Path:&quot;] == &quot;/datetime&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
@@ -1049,13 +1049,13 @@
         <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
-          <code class="ruby">  def word_search_check(request_lines)</code>
+          <code class="ruby">  def word_search_check</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="32">
           
           
-          <code class="ruby">    request_lines.first.include?(&quot;/word_search&quot;)</code>
+          <code class="ruby">    @request[&quot;Path:&quot;].include?(&quot;/word_search&quot;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
@@ -1329,11 +1329,11 @@
         <div class="source_table" id="4c012fefe00d5d9ed7647f3a2ef0262448b6e257">
   <div class="header">
     <h3>test/post_request_parser_test.rb</h3>
-    <h4><span class="red">61.9 %</span> covered</h4>
+    <h4><span class="red">63.16 %</span> covered</h4>
     <div>
-      <b>21</b> relevant lines. 
-      <span class="green"><b>13</b> lines covered</span> and
-      <span class="red"><b>8</b> lines missed.</span>
+      <b>19</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
+      <span class="red"><b>7</b> lines missed.</span>
     </div>
   </div>
   
@@ -1391,7 +1391,7 @@
         <li class="missed" data-hits="0" data-linenumber="9">
           
           
-          <code class="ruby">    request_lines = [&quot;POST /game?guess=4 HTTP/1.1&quot;,</code>
+          <code class="ruby">    request_lines = [&quot;POST /game HTTP/1.1&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -1511,13 +1511,13 @@
         <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_get_parameters</code>
+          <code class="ruby">  def test_get_protocol</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">    assert_equal &quot;guess=4&quot;, @request_parser.get_parameters</code>
+          <code class="ruby">    assert_equal &quot;HTTP/1.1&quot;, @request_parser.get_protocol</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
@@ -1535,13 +1535,13 @@
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_get_protocol</code>
+          <code class="ruby">  def test_get_hot</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="34">
           
           
-          <code class="ruby">    assert_equal &quot;HTTP/1.1&quot;, @request_parser.get_protocol</code>
+          <code class="ruby">    assert_equal &quot;127.0.0.1:9494&quot;, @request_parser.get_host</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
@@ -1559,13 +1559,13 @@
         <li class="covered" data-hits="1" data-linenumber="37">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_get_hot</code>
+          <code class="ruby">  def test_get_content_length</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="38">
           
           
-          <code class="ruby">    assert_equal &quot;127.0.0.1:9494&quot;, @request_parser.get_host</code>
+          <code class="ruby">    assert_equal &quot;7&quot;, @request_parser.get_content_length</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
@@ -1575,30 +1575,6 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="41">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def test_get_content_length</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="42">
-          
-          
-          <code class="ruby">    assert_equal &quot;7&quot;, @request_parser.get_content_length</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="43">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">end</code>
@@ -1611,11 +1587,11 @@
         <div class="source_table" id="edf3bf6d83b7510a3cdfa615d78f73e5f1758bf1">
   <div class="header">
     <h3>test/request_parser_test.rb</h3>
-    <h4><span class="red">54.17 %</span> covered</h4>
+    <h4><span class="red">57.14 %</span> covered</h4>
     <div>
-      <b>24</b> relevant lines. 
-      <span class="green"><b>13</b> lines covered</span> and
-      <span class="red"><b>11</b> lines missed.</span>
+      <b>21</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
+      <span class="red"><b>9</b> lines missed.</span>
     </div>
   </div>
   
@@ -1910,37 +1886,7 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def test_request_body</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
-          
-          <code class="ruby">    @parser.voltron</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="52">
-          
-          
-          <code class="ruby">    assert_equal @parser.request, @parser.request</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="49">
           
           
           <code class="ruby">end</code>
@@ -1953,11 +1899,11 @@
         <div class="source_table" id="f5ef2fae7ba5429bf047c9d917134027dab1b633">
   <div class="header">
     <h3>test/response_redirect_test.rb</h3>
-    <h4><span class="red">56.52 %</span> covered</h4>
+    <h4><span class="red">41.94 %</span> covered</h4>
     <div>
-      <b>23</b> relevant lines. 
+      <b>31</b> relevant lines. 
       <span class="green"><b>13</b> lines covered</span> and
-      <span class="red"><b>10</b> lines missed.</span>
+      <span class="red"><b>18</b> lines missed.</span>
     </div>
   </div>
   
@@ -2051,103 +1997,103 @@
         <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">    assert_equal &quot;HTTP/1.1&quot;, @response_redirect.get_protocol</code>
+          <code class="ruby">    skip</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="missed" data-hits="0" data-linenumber="16">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    assert_equal &quot;HTTP/1.1&quot;, @response_redirect.get_protocol</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="19">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_can_get_status_code</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="20">
+          
+          
+          <code class="ruby">    skip</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="21">
           
           
           <code class="ruby">    assert_equal &quot;302 Redirection&quot;, @response_redirect.get_status_code</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="22">
+        <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_can_get_status_line</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="23">
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">    skip</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
           
           
           <code class="ruby">    assert_equal &quot;HTTP/1.1 302 Redirection&quot;, @response_redirect.get_status_line</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="25">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def test_can_get_location</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
-          
-          <code class="ruby">    assert_equal &quot;Location: 127.0.0.1:9494/game&quot;, @response_redirect.get_location</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="30">
+        <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_can_get_content_type</code>
+          <code class="ruby">  def test_can_get_location</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="30">
+          
+          
+          <code class="ruby">    skip</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
           
           
-          <code class="ruby">    assert_equal &quot;content-type: text/html; charset=iso-8859-1&quot;, @response_redirect.get_content_type</code>
+          <code class="ruby">    assert_equal &quot;Location: 127.0.0.1:9494/game&quot;, @response_redirect.get_location</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
@@ -2165,70 +2111,118 @@
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">  def test_get_date</code>
+          <code class="ruby">  def test_can_get_content_type</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">    assert_equal &quot;date: #{Time.now.strftime(&#39;%a, %e %b %Y %H:%M:%S %z&#39;)}&quot;, @response_redirect.get_date</code>
+          <code class="ruby">    skip</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="missed" data-hits="0" data-linenumber="36">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    assert_equal &quot;content-type: text/html; charset=iso-8859-1&quot;, @response_redirect.get_content_type</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_get_date</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="40">
+          
+          
+          <code class="ruby">    skip</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="41">
+          
+          
+          <code class="ruby">    assert_equal &quot;date: #{Time.now.strftime(&#39;%a, %e %b %Y %H:%M:%S %z&#39;)}&quot;, @response_redirect.get_date</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="44">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_get_server</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="39">
+        <li class="missed" data-hits="0" data-linenumber="45">
+          
+          
+          <code class="ruby">    skip</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="46">
           
           
           <code class="ruby">    assert_equal &quot;server: ruby&quot;, @response_redirect.get_server</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">  def test_content_length</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
+        <li class="missed" data-hits="0" data-linenumber="50">
+          
+          
+          <code class="ruby">    skip</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="51">
           
           
           <code class="ruby">    assert_equal &quot;Content-Length: 7&quot;, @response_redirect.get_content_length</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="44">
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">end</code>
@@ -2241,11 +2235,11 @@
         <div class="source_table" id="7fb77a70a2e1944da131227f256046dac71b5f35">
   <div class="header">
     <h3>test/server_response_test.rb</h3>
-    <h4><span class="red">42.86 %</span> covered</h4>
+    <h4><span class="red">36.36 %</span> covered</h4>
     <div>
-      <b>21</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
-      <span class="red"><b>12</b> lines missed.</span>
+      <b>22</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
+      <span class="red"><b>14</b> lines missed.</span>
     </div>
   </div>
   
@@ -2291,400 +2285,322 @@
         <li class="missed" data-hits="0" data-linenumber="7">
           
           
-          <code class="ruby">    @request_lines = [&quot;GET / HTTP/1.1&quot;,</code>
+          <code class="ruby">    @server_response = ServerResponse.new</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">      &quot;Host: localhost:9292&quot;,</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby">      &quot;Connection: keep-alive&quot;,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      &quot;Cache-Control: no-cache&quot;,</code>
+          <code class="ruby">  def test_identify_datetime</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="missed" data-hits="0" data-linenumber="11">
           
           
-          <code class="ruby">      &quot;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Postman/4.2.2 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36&quot;,</code>
+          <code class="ruby">    request_lines_datetime = [&quot;GET /datetime HTTP/1.1&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">      &quot;Postman-Token: 833907be-6bbe-41c5-3e4a-11e4191b3086&quot;,</code>
+          <code class="ruby">      &quot;Host: localhost:9292&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">      &quot;Accept: */*&quot;,</code>
+          <code class="ruby">      &quot;Connection: keep-alive&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">      &quot;Accept-Encoding: gzip, deflate&quot;,</code>
+          <code class="ruby">      &quot;Cache-Control: no-cache&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">      &quot;Accept-Language: en-US&quot;]</code>
+          <code class="ruby">      &quot;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Postman/4.2.2 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      &quot;Postman-Token: 833907be-6bbe-41c5-3e4a-11e4191b3086&quot;,</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">    @server_response = ServerResponse.new</code>
+          <code class="ruby">      &quot;Accept: */*&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      &quot;Accept-Encoding: gzip, deflate&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="19">
           
-          <code class="ruby">  def test_hello_response</code>
+          
+          <code class="ruby">      &quot;Accept-Language: en-US&quot;]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
+        <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">    skip</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">    assert_equal &quot;&lt;pre&gt;Hello, World!(0)&lt;/pre&gt;&quot;, @server_response.hello_response</code>
+          <code class="ruby">      assert_equal Time.now.strftime(&#39;%l:%M%p on %A, %B %e, %Y&#39;), @server_response.format_response(request_lines_datetime)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="23">
-          
-          
-          <code class="ruby">    @server_response.hello_response</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="24">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
-          
-          <code class="ruby">    assert_equal &quot;&lt;pre&gt;Hello, World!(2)&lt;/pre&gt;&quot;, @server_response.hello_response</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="24">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def test_identidy_word_search</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">    request_lines_word_search = [&quot;GET /word_search?word=aardvark HTTP/1.1&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      &quot;Host: localhost:9292&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="28">
           
-          <code class="ruby">  def test_hello_response</code>
+          
+          <code class="ruby">      &quot;Connection: keep-alive&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      &quot;Cache-Control: no-cache&quot;,</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">    request_lines = [&quot;GET /hello HTTP/1.1&quot;,</code>
+          <code class="ruby">      &quot;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Postman/4.2.2 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">      &quot;Host: localhost:9292&quot;,</code>
+          <code class="ruby">      &quot;Postman-Token: 833907be-6bbe-41c5-3e4a-11e4191b3086&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">      &quot;Connection: keep-alive&quot;,</code>
+          <code class="ruby">      &quot;Accept: */*&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">      &quot;Cache-Control: no-cache&quot;,</code>
+          <code class="ruby">      &quot;Accept-Encoding: gzip, deflate&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">      &quot;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Postman/4.2.2 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36&quot;,</code>
+          <code class="ruby">      &quot;Accept-Language: en-US&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby">      &quot;Postman-Token: 833907be-6bbe-41c5-3e4a-11e4191b3086&quot;,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="missed" data-hits="0" data-linenumber="36">
           
           
-          <code class="ruby">      &quot;Accept: */*&quot;,</code>
+          <code class="ruby">      assert &quot;&lt;pre&gt;aardvark is a word&lt;/pre&gt;&quot;, @server_response.format_response(request_lines_word_search)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      &quot;Accept-Encoding: gzip, deflate&quot;,</code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">      &quot;Accept-Language: en-US&quot;]</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">  def test_general_format_for_blank_path</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="40">
           
           
-          <code class="ruby">      assert_equal &quot;&lt;pre&gt;Hello, World!(0)&lt;/pre&gt;&quot;, @server_response.format_response(request_lines)</code>
+          <code class="ruby">    request_lines_general = [&quot;GET / HTTP/1.1&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      &quot;Host: localhost:9292&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      &quot;Connection: keep-alive&quot;,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="43">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="43">
           
-          <code class="ruby">  def test_datetime</code>
+          
+          <code class="ruby">      &quot;Cache-Control: no-cache&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      &quot;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Postman/4.2.2 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36&quot;,</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
-          <code class="ruby">    request_lines = [&quot;GET /datetime HTTP/1.1&quot;,</code>
+          <code class="ruby">      &quot;Postman-Token: 833907be-6bbe-41c5-3e4a-11e4191b3086&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">      &quot;Host: localhost:9292&quot;,</code>
+          <code class="ruby">      &quot;Accept: */*&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">      &quot;Connection: keep-alive&quot;,</code>
+          <code class="ruby">      &quot;Accept-Encoding: gzip, deflate&quot;,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">      &quot;Cache-Control: no-cache&quot;,</code>
+          <code class="ruby">      &quot;Accept-Language: en-US&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">      &quot;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Postman/4.2.2 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36&quot;,</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="missed" data-hits="0" data-linenumber="50">
           
           
-          <code class="ruby">      &quot;Postman-Token: 833907be-6bbe-41c5-3e4a-11e4191b3086&quot;,</code>
+          <code class="ruby">      formatted_response = @server_response.format_response(request_lines_general)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">      &quot;Accept: */*&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="52">
-          
-          
-          <code class="ruby">      &quot;Accept-Encoding: gzip, deflate&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="53">
-          
-          
-          <code class="ruby">      &quot;Accept-Language: en-US&quot;]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="54">
-          
-          
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="missed" data-hits="0" data-linenumber="52">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    assert formatted_response.include?(&quot;Verb:&quot;)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">    assert formatted_response.include?(&quot;Path:&quot;)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">    assert formatted_response.include?(&quot;Protocol:&quot;)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="55">
+          
+          
+          <code class="ruby">    assert formatted_response.include?(&quot;Host:&quot;)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="56">
           
           
-          <code class="ruby">    assert_equal Time.now.strftime(&#39;%l:%M%p on %A, %B %e, %Y &#39;), @server_response.format_response(request_lines)</code>
+          <code class="ruby">    assert formatted_response.include?(&quot;Port:&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="missed" data-hits="0" data-linenumber="57">
+          
+          
+          <code class="ruby">    assert formatted_response.include?(&quot;Origin:&quot;)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="58">
+          
+          
+          <code class="ruby">    assert formatted_response.include?(&quot;Accept:&quot;)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="59">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def test_word_search</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="60">
-          
-          
-          <code class="ruby">      request_lines = [&quot;GET /word_search?word=aardvark HTTP/1.1&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby">      &quot;Host: localhost:9292&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">      &quot;Connection: keep-alive&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
-          
-          
-          <code class="ruby">      &quot;Cache-Control: no-cache&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
-          <code class="ruby">      &quot;User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Postman/4.2.2 Chrome/47.0.2526.73 Electron/0.36.2 Safari/537.36&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="65">
-          
-          
-          <code class="ruby">      &quot;Postman-Token: 833907be-6bbe-41c5-3e4a-11e4191b3086&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="66">
-          
-          
-          <code class="ruby">      &quot;Accept: */*&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="67">
-          
-          
-          <code class="ruby">      &quot;Accept-Encoding: gzip, deflate&quot;,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      &quot;Accept-Language: en-US&quot;]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="70">
-          
-          
-          <code class="ruby">      assert @server_response.format_response(request_lines)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="72">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">end</code>

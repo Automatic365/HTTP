@@ -1,17 +1,18 @@
+require 'pry'
 class PostRequestParser
   attr_reader :parsed_request
   def initialize(request_lines)
     @request_lines = request_lines
     @parsed_request = Hash.new
+    @request_line = @request_lines.first
   end
 
   def get_verb
-    @request_line = @request_lines.first
     @request_line.split.first
   end
 
   def get_path
-    @request_line.split[1].split("?").first
+    @request_line.split[1]
   end
 
   def get_protocol

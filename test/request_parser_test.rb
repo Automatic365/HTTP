@@ -46,9 +46,4 @@ class RequestParserTest < Minitest::Test
     assert_equal "*/*", @parser.get_accept
   end
 
-  def test_request_body
-    @parser.voltron
-
-    assert_equal @parser.request, @parser.request
-  end
 end

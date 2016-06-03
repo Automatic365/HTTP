@@ -6,7 +6,7 @@ require 'Faraday'
 
 class PostRequestParserTest < Minitest::Test
   def setup
-    request_lines = ["POST /game?guess=4 HTTP/1.1",
+    request_lines = ["POST /game HTTP/1.1",
                      "User-Agent: Faraday v0.9.2",
                      "Content-Type: application/x-www-form-urlencoded",
                      "Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
@@ -24,10 +24,6 @@ class PostRequestParserTest < Minitest::Test
 
   def test_get_path
     assert_equal "/game", @request_parser.get_path
-  end
-
-  def test_get_parameters
-    assert_equal "guess=4", @request_parser.get_parameters
   end
 
   def test_get_protocol

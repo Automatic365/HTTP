@@ -10,26 +10,26 @@ require_relative "game"
     parser = RequestParser.new(request_lines)
     parser.voltron
     @request = parser.request
-    path_check(request_lines)
+    path_check
   end
 
 
-  def path_check(request_lines)
-    if datetime_check(request_lines)
+  def path_check
+    if datetime_check
       date
-    elsif word_search_check(request_lines)
+    elsif word_search_check
       word_search
     else
       response_body_formatter
     end
   end
 
-  def datetime_check(request_lines)
-    request_lines.first.include?("/datetime")
+  def datetime_check
+    @request["Path:"] == "/datetime"
   end
 
-  def word_search_check(request_lines)
-    request_lines.first.include?("/word_search")
+  def word_search_check
+    @request["Path:"].include?("/word_search")
   end
 
   def date

@@ -1,7 +1,6 @@
 require 'faraday'
 require './test/testhelper'
 require 'pry'
-require_relative '../lib/server_response'
 
 class HTTPRunnerTest < Minitest::Test
 
