@@ -16,6 +16,7 @@ class ResponseHeaderFormatter
   def form_response(request)
     @request = request
     @total_count += 1
+    # binding.pry
     if @request.first.include?("game")
       game_start
     elsif @request.any?{|line|line.include?("/shutdown")}
@@ -41,6 +42,7 @@ class ResponseHeaderFormatter
   end
 
   def format_headers
+    # binding.pry
     if @request.first.split[1] == "/game" && @request.first.split.first == "POST"
       response_redirect
     else
@@ -60,6 +62,7 @@ class ResponseHeaderFormatter
     redirect_formatter = ResponseRedirect.new
     redirect_formatter.create_redirect(@game.parsed_request)
     redirect_formatter.redirect_headers
+    # binding.pry
   end
 
 

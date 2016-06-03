@@ -11,47 +11,62 @@ class Game
   end
 
   def game_check(request)
-    post_parser = PostRequestParser.new(request)
-    if request.first.include?("POST")
-      post_parser.voltron
-      @parsed_request = post_parser.parsed_request
-      start_check
+    # binding.pry
+    if request.first.include?("/start_game")
+      @game_on = true
+      start_game
     else
-      get_game
+      post_check(request)
+      evaluate_guess(last_guess)
     end
   end
 
 
-  def start_check
-   if @parsed_request["Path:"]=="/start_game"
-     start_game
-   else
-     guess_check
-   end
+  def post_check(request)
+    if request.first.split.first == "POST"
+      post_parse(request)
+      record_guess
+    end
+      # evaluate_guess(last_guess)
   end
+
+  def post_parse(request)
+    post_parser = PostRequestParser.new(request)
+    post_parser.voltron
+    @parsed_request = post_parser.parsed_request
+  end
+
+
+  # def start_check
+  #  if @parsed_request["Path:"]=="/start_game"
+  #    start_game
+  #  else
+  #    guess_check
+  #  end
+  # end
 
   def start_game
     @total_guesses = 0
     "Good Luck!"
   end
 
-  def get_game
-    if last_guess == nil
-      "Did you start the game yet?"
-    else
-      evaluate_guess(last_guess)
-    end
-  end
+  # def get_game
+  #   if @total_guesses == 0
+  #     "Did you start the game yet?"
+  #   else
+  #     evaluate_guess(last_guess)
+  #   end
+  # end
 
-  def guess_check
-    # binding.pry
-    if @total_guesses == nil
-      "You have to start the game first!"
-    else
-      record_guess
-      evaluate_guess(last_guess)
-    end
-  end
+  # def guess_check
+  #   # binding.pry
+  #   if @total_guesses == nil
+  #     "You have to start the game first!"
+  #   else
+  #     record_guess
+  #     evaluate_guess(last_guess)
+  #   end
+  # end
 
   def record_guess
     @total_guesses += 1
@@ -60,11 +75,11 @@ class Game
   def evaluate_guess(guess)
     # binding.pry
     if guess.to_i < @answer
-      "#{guess.to_i} IS TOO LOW!"
+      "Guess ##{@total_guesses}: #{guess.to_i} IS TOO LOW!"
     elsif guess.to_i > @answer
-      "#{guess.to_i} IS TOO HIGH!"
+      "Guess ##{@total_guesses}: #{guess.to_i} IS TOO HIGH!"
     else
-      "#{guess.to_i} IS CORRECT!"
+      "Guess ##{@total_guesses}: #{guess.to_i} IS CORRECT!"
     end
   end
 
