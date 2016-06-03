@@ -16,16 +16,32 @@ class ResponseHeaderFormatter
   def form_response(request)
     @request = request
     @total_count += 1
-    # binding.pry
-    if @request.first.include?("game")
+    if game_path_check
       game_start
-    elsif @request.any?{|line|line.include?("/shutdown")}
+    elsif shutdown_check
       shutdown_format
-    elsif @request.first.include?("/hello")
+    elsif hello_check
       hello_format
     else
-      @formatted_response = @server_response.format_response(@request)
+      general_path_format
     end
+  end
+
+
+  def game_path_check
+    @request.first.include?("game")
+  end
+
+  def shutdown_check
+    @request.any?{|line|line.include?("/shutdown")}
+  end
+
+  def hello_check
+    @request.first.include?("/hello")
+  end
+
+  def game_start
+    @formatted_response = @game.game_check(@request)
   end
 
   def shutdown_format
@@ -36,6 +52,9 @@ class ResponseHeaderFormatter
     @formatted_response = "Hello, World!(#{@hello_count+=1})"
   end
 
+  def general_path_format
+    @formatted_response = @server_response.format_response(@request)
+  end
 
   def format_output
     "<html><head></head><body>#{@formatted_response}</body></html>"
@@ -57,18 +76,6 @@ class ResponseHeaderFormatter
      "content-length: #{format_output.length}\r\n\r\n"].join("\r\n")
    end
   end
-
-  def game_start
-    @formatted_response = @game.game_check(@request)
-  end
-
-  # def response_redirect
-  #   redirect_formatter = ResponseRedirect.new
-  #   redirect_formatter.create_redirect(@game.parsed_request)
-  #   redirect_formatter.redirect_headers.join("\r\n")
-  #   # binding.pry
-  # end
-
 
   def post_check(request_lines)
     guess_check(request_lines) if request_lines.first.include?("POST")

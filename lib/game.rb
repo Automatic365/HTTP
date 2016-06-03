@@ -3,17 +3,14 @@ require 'pry'
 
 class Game
   attr_reader :total_guesses
-  attr_accessor :last_guess, :parsed_request, :game_on
+  attr_accessor :last_guess, :parsed_request
 
   def initialize
-    @game_on = false
     @answer = rand(1..100)
   end
 
   def game_check(request)
-    # binding.pry
     if request.first.include?("/start_game")
-      @game_on = true
       start_game
     else
       post_check(request)
@@ -27,7 +24,6 @@ class Game
       post_parse(request)
       record_guess
     end
-      # evaluate_guess(last_guess)
   end
 
   def post_parse(request)
@@ -37,36 +33,10 @@ class Game
   end
 
 
-  # def start_check
-  #  if @parsed_request["Path:"]=="/start_game"
-  #    start_game
-  #  else
-  #    guess_check
-  #  end
-  # end
-
   def start_game
     @total_guesses = 0
     "Good Luck!"
   end
-
-  # def get_game
-  #   if @total_guesses == 0
-  #     "Did you start the game yet?"
-  #   else
-  #     evaluate_guess(last_guess)
-  #   end
-  # end
-
-  # def guess_check
-  #   # binding.pry
-  #   if @total_guesses == nil
-  #     "You have to start the game first!"
-  #   else
-  #     record_guess
-  #     evaluate_guess(last_guess)
-  #   end
-  # end
 
   def record_guess
     @total_guesses += 1
