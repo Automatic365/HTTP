@@ -42,11 +42,13 @@ class ResponseHeaderFormatter
   end
 
   def format_headers
-    # binding.pry
     if @request.first.split[1] == "/game" && @request.first.split.first == "POST"
-      # binding.pry
-      puts response_redirect
-      response_redirect
+      ["http/1.1 302 Moved Permanently",
+       "Location: http://127.0.0.1:9494/game",
+       "date: #{Time.now.strftime('%a, %e %b %Y %H:%M:%S %z')}",
+       "server: ruby",
+       "content-type: text/html; charset=iso=8859-1",
+       "content-length: #{format_output.length}\r\n\r\n"].join("\r\n")
     else
     ["http/1.1 200 ok",
      "date: #{Time.now.strftime('%a, %e %b %Y %H:%M:%S %z')}",
@@ -60,12 +62,12 @@ class ResponseHeaderFormatter
     @formatted_response = @game.game_check(@request)
   end
 
-  def response_redirect
-    redirect_formatter = ResponseRedirect.new
-    redirect_formatter.create_redirect(@game.parsed_request)
-    redirect_formatter.redirect_headers.join("\r\n")
-    # binding.pry
-  end
+  # def response_redirect
+  #   redirect_formatter = ResponseRedirect.new
+  #   redirect_formatter.create_redirect(@game.parsed_request)
+  #   redirect_formatter.redirect_headers.join("\r\n")
+  #   # binding.pry
+  # end
 
 
   def post_check(request_lines)
