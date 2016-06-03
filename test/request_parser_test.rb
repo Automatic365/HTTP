@@ -1,6 +1,5 @@
 require_relative '../lib/request_parser'
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'testhelper'
 
 class RequestParserTest < Minitest::Test
   def setup
@@ -19,6 +18,7 @@ class RequestParserTest < Minitest::Test
 
   def test_get_verb
     assert_equal "GET", @parser.get_verb
+
   end
 
   def test_get_path
@@ -44,6 +44,5 @@ class RequestParserTest < Minitest::Test
   def test_get_accept
     assert_equal "*/*", @parser.get_accept
   end
-end
 
-puts "hello"
+end
