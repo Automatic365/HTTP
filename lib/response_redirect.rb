@@ -15,7 +15,7 @@ class ResponseRedirect
   end
 
   def get_status_code
-    "302 Redirection"
+    "302 Found"
   end
 
   def get_status_line
@@ -49,6 +49,6 @@ class ResponseRedirect
     @redirect_headers.push(get_content_type)
     @redirect_headers.push(get_date)
     @redirect_headers.push(get_server)
-    @redirect_headers.push(get_content_length)
+    @redirect_headers.push(get_content_length + "\r\n\r\n")
   end
 end

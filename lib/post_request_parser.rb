@@ -61,7 +61,7 @@ class PostRequestParser
     @parsed_request["Port:"] = get_port
     @parsed_request["Origin:"] = get_origin
     @parsed_request["Accept:"] = get_accept
-    @parsed_request["Content-Length:"] = get_content_length
+    @parsed_request["Content-Length:"] = get_content_length 
   end
 
 end

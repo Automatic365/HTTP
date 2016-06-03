@@ -44,6 +44,8 @@ class ResponseHeaderFormatter
   def format_headers
     # binding.pry
     if @request.first.split[1] == "/game" && @request.first.split.first == "POST"
+      # binding.pry
+      puts response_redirect
       response_redirect
     else
     ["http/1.1 200 ok",
@@ -61,7 +63,7 @@ class ResponseHeaderFormatter
   def response_redirect
     redirect_formatter = ResponseRedirect.new
     redirect_formatter.create_redirect(@game.parsed_request)
-    redirect_formatter.redirect_headers
+    redirect_formatter.redirect_headers.join("\r\n")
     # binding.pry
   end
 

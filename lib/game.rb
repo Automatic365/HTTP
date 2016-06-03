@@ -3,7 +3,7 @@ require 'pry'
 
 class Game
   attr_reader :total_guesses
-  attr_accessor :last_guess, :parsed_request
+  attr_accessor :last_guess, :parsed_request, :game_on
 
   def initialize
     @game_on = false
