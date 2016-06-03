@@ -26,4 +26,22 @@ class HTTPRunnerTest < Minitest::Test
 
     assert conn.body.include?("Hello, World!")
   end
+
+  def test_datetime
+    conn = Faraday.get('http://127.0.0.1:9494/datetime')
+
+    assert conn.body.include?(Time.now.strftime('%l:%M%p on %A, %B %e, %Y'))
+  end
+
+  def test_word_search
+    conn = Faraday.get('http://127.0.0.1:9494/word_search?word=aardvark')
+
+    assert conn.body.include?("aardvark is a word")
+  end
+
+  def test_word_search_bad_word
+    conn = Faraday.get('http://127.0.0.1:9494/word_search?word=adakdms')
+
+    assert conn.body.include?("adakdms is not a word")
+  end
 end

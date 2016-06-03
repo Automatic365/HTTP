@@ -29,15 +29,16 @@ class HTTPRunner
   end
 
   def grab_guess(request_lines)
-    @response_formatter.game.last_guess = @client.read(request_lines.find{|line|line.include?("Content-Length:")}.split(": ").last.to_i).split("=").last.to_i
+    content_length = request_lines.find{|line|line.include?("Content-Length:")}.split(": ").last.to_i
+    @response_formatter.game.last_guess = @client.read(content_length).split("=").last.to_i
   end
 
   def sort_response(request_lines)
     @response_formatter.form_response(request_lines)
-    format_response_headers(request_lines)
+    format_response_headers
   end
 
-  def format_response_headers(request_lines)
+  def format_response_headers
     @response = "<pre>#{@response_formatter.formatted_response}\n</pre>"
     @output = @response_formatter.format_output
     @headers = @response_formatter.format_headers

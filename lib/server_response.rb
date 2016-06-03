@@ -1,7 +1,6 @@
 require 'pry'
 
 require_relative "request_parser"
-require_relative "post_request_parser"
 require_relative "word_search"
 require_relative "game"
 
@@ -34,7 +33,7 @@ require_relative "game"
   end
 
   def date
-    Time.now.strftime('%l:%M%p on %A, %B %e, %Y ')
+    Time.now.strftime('%l:%M%p on %A, %B %e, %Y')
   end
 
   def response_body_formatter

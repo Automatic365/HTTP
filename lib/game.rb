@@ -43,7 +43,6 @@ class Game
   end
 
   def evaluate_guess(guess)
-    # binding.pry
     if guess.to_i < @answer
       "Guess ##{@total_guesses}: #{guess.to_i} IS TOO LOW!"
     elsif guess.to_i > @answer
